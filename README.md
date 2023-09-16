@@ -1,8 +1,10 @@
-# React + Vite
+# Tic-tac-toe vs Bot
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Another tic-tac-toe game. Last time I was doing tic-tac-toe tutorial from the official react docs.
 
-Currently, two official plugins are available:
+The tutorial was great, but I'm the one who controls the X's and O's; because I'm a loner. So what's gonna make me a better loner? Yes! Fight with a bot. And I found a video: [Tic Tac Toe with React.js
+](https://www.youtube.com/watch?v=O7lLLMTeTVo) that will help me to achieve that. Let's gooo!!
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> I'm feelin lonely. Oh, I wish I'd find a lover that could hold me. Now I'm crying in my room... 😭
+
+Project was initialized using pnpm and Vite.
