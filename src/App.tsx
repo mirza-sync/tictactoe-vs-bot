@@ -21,6 +21,27 @@ function App() {
     const isComputerTurn =
       squares.filter((square) => square !== null).length % 2 !== 0;
 
+    const linesThatAre = (a: string, b: string, c: string) => {
+      return lines.filter((squareIndexs) => {
+        const squareValues = squareIndexs.map((index) => squares[index]);
+        return (
+          JSON.stringify([a, b, c].sort()) ===
+          JSON.stringify(squareValues.sort())
+        );
+      });
+    };
+
+    const playerWon = linesThatAre("X", "X", "X").length > 0;
+    const computerWon = linesThatAre("O", "O", "O").length > 0;
+
+    if (playerWon) {
+      alert("Player won!");
+    }
+
+    if (computerWon) {
+      alert("Computer won!");
+    }
+
     const putComputerAt = (index: number) => {
       let newSquares = squares;
       newSquares[index] = "O";
@@ -31,8 +52,10 @@ function App() {
       const emptyIndexes = squares
         .map((square, index) => (square === null ? index : null))
         .filter((val) => val !== null);
+
       const randomIndex =
         emptyIndexes[Math.ceil(Math.random() * emptyIndexes.length)];
+
       putComputerAt(randomIndex);
     }
   }, [squares]);
