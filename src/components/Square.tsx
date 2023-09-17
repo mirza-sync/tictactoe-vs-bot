@@ -1,7 +1,13 @@
-function Square({ x, o, onSquareClick }) {
+type SquareProps = {
+  x: number;
+  o: number;
+  onSquareClick: () => void;
+};
+
+function Square(props: SquareProps) {
   return (
-    <div className="square" onClick={onSquareClick}>
-      {x ? "X" : o ? "O" : ""}
+    <div className="square" onClick={props.onSquareClick}>
+      {props.x ? "X" : props.o ? "O" : ""}
     </div>
   );
 }

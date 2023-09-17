@@ -6,7 +6,7 @@ import Square from "./components/Square";
 function App() {
   const [squares, setSquares] = useState(Array(9).fill(null));
 
-  function handleSquareClick(index) {
+  function handleSquareClick(index: number) {
     let newSquares = squares;
     newSquares[index] = "X";
     setSquares([...newSquares]);
