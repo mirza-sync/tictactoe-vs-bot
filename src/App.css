@@ -24,3 +24,16 @@ main {
   display: grid;
   place-items: center;
 }
+
+.result {
+  padding: 10px;
+  font-size: 2rem;
+}
+
+.result.green {
+  background: #5a5;
+}
+
+.result.red {
+  background: #a55;
+}

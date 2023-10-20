@@ -16,6 +16,7 @@ const lines = [
 
 function App() {
   const [squares, setSquares] = useState(Array(9).fill(null));
+  const [winner, setWinner] = useState<"X" | "O" | null>(null);
 
   useEffect(() => {
     const isComputerTurn =
@@ -39,11 +40,11 @@ function App() {
     const computerWon = linesThatAre("O", "O", "O").length > 0;
 
     if (playerWon) {
-      alert("Player won!");
+      setWinner("X");
     }
 
     if (computerWon) {
-      alert("Computer won!");
+      setWinner("O");
     }
 
     const putComputerAt = (index: number) => {
@@ -111,6 +112,11 @@ function App() {
           );
         })}
       </Board>
+      {winner !== null && (
+        <div className={`result ${winner === "X" ? "green" : "red"}`}>
+          {winner === "X" ? "You WON!" : "You LOST!"}
+        </div>
+      )}
     </main>
   );
 }
