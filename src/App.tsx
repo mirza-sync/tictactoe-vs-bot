@@ -53,6 +53,15 @@ function App() {
     };
 
     if (isComputerTurn) {
+      const linesToBlock = linesThatAre("X", "X", null);
+      if (linesToBlock.length > 0) {
+        const blockIndex = linesToBlock[0].filter(
+          (index) => squares[index] === null
+        )[0];
+        putComputerAt(blockIndex);
+        return;
+      }
+
       const winningLines = linesThatAre("O", "O", null);
       if (winningLines.length > 0) {
         const winningIndex = winningLines[0].filter(
