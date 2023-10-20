@@ -71,9 +71,17 @@ function App() {
         return;
       }
 
+      const linesToContinue = linesThatAre("O", null, null);
+      if (linesToContinue.length > 0) {
+        const continueIndex = linesToContinue[0].filter(
+          (index) => squares[index] === null
+        )[0];
+        putComputerAt(continueIndex);
+        return;
+      }
+
       const randomIndex =
         emptyIndexes[Math.ceil(Math.random() * emptyIndexes.length)];
-
       putComputerAt(randomIndex);
     }
   }, [squares]);
