@@ -31,6 +31,10 @@ function App() {
       });
     };
 
+    const emptyIndexes = squares
+      .map((square, index) => (square === null ? index : null))
+      .filter((val) => val !== null);
+
     const playerWon = linesThatAre("X", "X", "X").length > 0;
     const computerWon = linesThatAre("O", "O", "O").length > 0;
 
@@ -49,9 +53,14 @@ function App() {
     };
 
     if (isComputerTurn) {
-      const emptyIndexes = squares
-        .map((square, index) => (square === null ? index : null))
-        .filter((val) => val !== null);
+      const winningLines = linesThatAre("O", "O", null);
+      if (winningLines.length > 0) {
+        const winningIndex = winningLines[0].filter(
+          (index) => squares[index] === null
+        )[0];
+        putComputerAt(winningIndex);
+        return;
+      }
 
       const randomIndex =
         emptyIndexes[Math.ceil(Math.random() * emptyIndexes.length)];
