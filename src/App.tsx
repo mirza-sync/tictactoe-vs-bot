@@ -22,7 +22,11 @@ function App() {
     const isComputerTurn =
       squares.filter((square) => square !== null).length % 2 !== 0;
 
-    const linesThatAre = (a: string, b: string, c: string) => {
+    const linesThatAre = (
+      a: string | null,
+      b: string | null,
+      c: string | null
+    ) => {
       return lines.filter((squareIndexs) => {
         const squareValues = squareIndexs.map((index) => squares[index]);
         return (
@@ -47,10 +51,12 @@ function App() {
       setWinner("O");
     }
 
-    const putComputerAt = (index: number) => {
-      let newSquares = squares;
-      newSquares[index] = "O";
-      setSquares([...newSquares]);
+    const putComputerAt = (index: number | null) => {
+      if (index) {
+        let newSquares = squares;
+        newSquares[index] = "O";
+        setSquares([...newSquares]);
+      }
     };
 
     if (isComputerTurn) {
